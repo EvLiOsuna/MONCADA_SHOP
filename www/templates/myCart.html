@@ -3,7 +3,7 @@
 
       <div>
         <p>Total ( {{get_qty()}} ) =
-          <strong> &#8377; {{total_amount}}</strong>
+          <strong> &#36; {{total_amount}}</strong>
         </p>
       </div>
       <button ng-click="checkout()" class="button button-assertive button-block ">Check Out</button>
@@ -16,8 +16,8 @@
             <img ng-src="{{'img/fk/'+ item.item_image +'.jpg'}}" width="100%" height="auto" style="box-shadow: none;">
             <form class="list"></form>
             <div>
-              <p>{{item.item_qty}} x &#8377; {{item.item_price}} =
-                <strong> &#8377; {{ item.item_qty *  item.item_price  }}</strong>
+              <p>{{item.item_qty}} x &#36; {{item.item_price}} =
+                <strong> &#36; {{ item.item_qty *  item.item_price  }}</strong>
               </p>
             </div>
             <div class="button-bar" style="box-shadow: none;">
