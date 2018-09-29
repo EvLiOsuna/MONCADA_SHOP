@@ -1,7 +1,7 @@
 {
   "category" : {
-    "cat01" : "Burger",
-    "cat02" : "Drinks"
+    "cat01" : "Cafes",
+    "cat02" : "Snaks"
   },
   "featured" : {
     "item1" : "slide_1",

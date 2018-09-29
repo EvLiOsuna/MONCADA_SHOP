@@ -117,11 +117,11 @@ angular.module('app.controllers', [])
 
         }, function (error) {
             sharedUtils.hideLoading();
-            sharedUtils.showAlert("Please note","Sign up Error");
+            sharedUtils.showAlert("Lo sentimos","Error de registro.");
         });
 
       }else{
-        sharedUtils.showAlert("Please note","Entered data is not valid");
+        sharedUtils.showAlert("Lo sentimos","Los datos no son validos.");
       }
 
     }
@@ -363,27 +363,27 @@ angular.module('app.controllers', [])
 
       if(edit_val!=null) {
         $scope.data = edit_val; // For editing address
-        var title="Edit Address";
-        var sub_title="Edit your address";
+        var title="Editar Dirección";
+        var sub_title="Editar Dirección";
       }
       else {
         $scope.data = {};    // For adding new address
-        var title="Add Address";
-        var sub_title="Add your new address";
+        var title="Agregar Dirección";
+        var sub_title="Agregar Dirección";
       }
       // An elaborate, custom popup
       var addressPopup = $ionicPopup.show({
-        template: '<input type="text"   placeholder="Nick Name"  ng-model="data.nickname"> <br/> ' +
-                  '<input type="text"   placeholder="Address" ng-model="data.address"> <br/> ' +
-                  '<input type="number" placeholder="Pincode" ng-model="data.pin"> <br/> ' +
-                  '<input type="number" placeholder="Phone" ng-model="data.phone">',
+        template: '<input type="text"   placeholder="Nombre usuario"  ng-model="data.nickname"> <br/> ' +
+                  '<input type="text"   placeholder="Dirección" ng-model="data.address"> <br/> ' +
+                  '<input type="number" placeholder="Pin" ng-model="data.pin"> <br/> ' +
+                  '<input type="number" placeholder="Telefono" ng-model="data.phone">',
         title: title,
         subTitle: sub_title,
         scope: $scope,
         buttons: [
-          { text: 'Close' },
+          { text: 'Cerrar' },
           {
-            text: '<b>Save</b>',
+            text: '<b>Guardar</b>',
             type: 'button-positive',
             onTap: function(e) {
               if (!$scope.data.nickname || !$scope.data.address || !$scope.data.pin || !$scope.data.phone ) {
@@ -425,11 +425,11 @@ angular.module('app.controllers', [])
     // A confirm dialog for deleting address
     $scope.deleteAddress = function(del_id) {
       var confirmPopup = $ionicPopup.confirm({
-        title: 'Delete Address',
-        template: 'Are you sure you want to delete this address',
+        title: 'Borrar Dirección',
+        template: '¿Está Seguro de borrar la Dirección?',
         buttons: [
           { text: 'No' , type: 'button-stable' },
-          { text: 'Yes', type: 'button-assertive' , onTap: function(){return del_id;} }
+          { text: 'Si', type: 'button-assertive' , onTap: function(){return del_id;} }
         ]
       });
 
@@ -453,7 +453,7 @@ angular.module('app.controllers', [])
       if(editable.password!="" && editable.password!=null  ){
         //Update Password in UserAuthentication Table
         firebase.auth().currentUser.updatePassword(editable.password).then(function(ok) {}, function(error) {});
-        sharedUtils.showAlert("Account","Password Updated");
+        sharedUtils.showAlert("Cuenta","Contraseña actualizada.");
       }
 
       //Edit Email
@@ -502,8 +502,8 @@ angular.module('app.controllers', [])
     });
 
     $scope.payments = [
-      {id: 'CREDIT', name: 'Credit Card'},
-      {id: 'NETBANK', name: 'Net Banking'},
+      {id: 'CREDIT', name: 'Tarjeta de credito'},
+      {id: 'NETBANK', name: 'Cuenta de banco'},
       {id: 'COD', name: 'COD'}
     ];
 
@@ -511,7 +511,7 @@ angular.module('app.controllers', [])
 
       if(address==null || payment==null){
         //Check if the checkboxes are selected ?
-        sharedUtils.showAlert("Error","Please choose from the Address and Payment Modes.")
+        sharedUtils.showAlert("Error","Elija una forma de pago.")
       }
       else {
         // Loop throw all the cart item
@@ -533,7 +533,7 @@ angular.module('app.controllers', [])
             user_name:$scope.user_info.displayName,
             address_id: address,
             payment_id: payment,
-            status: "Queued"
+            status: "En espera"
           });
 
         }
@@ -541,7 +541,7 @@ angular.module('app.controllers', [])
         //Remove users cart
         fireBaseData.refCart().child($scope.user_info.uid).remove();
 
-        sharedUtils.showAlert("Info", "Order Successfull");
+        sharedUtils.showAlert("Info", "Orden hecha con exito.");
 
         // Go to past order page
         $ionicHistory.nextViewOptions({
@@ -558,27 +558,27 @@ angular.module('app.controllers', [])
 
       if(edit_val!=null) {
         $scope.data = edit_val; // For editing address
-        var title="Edit Address";
-        var sub_title="Edit your address";
+        var title="Editar Dirección";
+        var sub_title="Editar Dirección";
       }
       else {
         $scope.data = {};    // For adding new address
-        var title="Add Address";
-        var sub_title="Add your new address";
+        var title="Agregar Dirección";
+        var sub_title="Agregar Dirección";
       }
       // An elaborate, custom popup
       var addressPopup = $ionicPopup.show({
-        template: '<input type="text"   placeholder="Nick Name"  ng-model="data.nickname"> <br/> ' +
-        '<input type="text"   placeholder="Address" ng-model="data.address"> <br/> ' +
-        '<input type="number" placeholder="Pincode" ng-model="data.pin"> <br/> ' +
-        '<input type="number" placeholder="Phone" ng-model="data.phone">',
+        template: '<input type="text"   placeholder="Usuario"  ng-model="data.nickname"> <br/> ' +
+        '<input type="text"   placeholder="Dirección" ng-model="data.address"> <br/> ' +
+        '<input type="number" placeholder="Pin" ng-model="data.pin"> <br/> ' +
+        '<input type="number" placeholder="Telefono" ng-model="data.phone">',
         title: title,
         subTitle: sub_title,
         scope: $scope,
         buttons: [
-          { text: 'Close' },
+          { text: 'Cerrar' },
           {
-            text: '<b>Save</b>',
+            text: '<b>Guardar</b>',
             type: 'button-positive',
             onTap: function(e) {
               if (!$scope.data.nickname || !$scope.data.address || !$scope.data.pin || !$scope.data.phone ) {
